@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>某个主题</title>
+    <title>重载模型并训练</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -69,7 +69,7 @@ var addUtterances = () => {
     script.src = "https://utteranc.es/client.js";
     script.async = "async";
 
-    script.setAttribute("repo", "xinetzone/sanstyle-starter");
+    script.setAttribute("repo", "xinetzone/tensorflow-crack");
     script.setAttribute("issue-term", "pathname");
     script.setAttribute("theme", "github-light");
     script.setAttribute("label", "💬 comment");
@@ -92,12 +92,12 @@ commentsRunWhenDOMLoaded(addUtterances);
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://xinetzone.github.io/sanstyle-starter/start/topic.html" />
+    <link rel="canonical" href="https://xinetzone.github.io/tensorflow-crack/start/01_main-reload.html" />
     <link rel="shortcut icon" href="../_static/page-logo.jfif"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="指南" href="../basics/index.html" />
-    <link rel="prev" title="快速上手" href="index.html" />
+    <link rel="prev" title="训练与测试" href="00_train_n_test.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -141,9 +141,14 @@ commentsRunWhenDOMLoaded(addUtterances);
    </i>
   </label>
   <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="00_train_n_test.html">
+     训练与测试
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     某个主题
+     重载模型并训练
     </a>
    </li>
   </ul>
@@ -352,9 +357,9 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/start/topic.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/start/01_main-reload.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -368,11 +373,11 @@ commentsRunWhenDOMLoaded(addUtterances);
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/xinetzone/sanstyle-starter"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/xinetzone/tensorflow-crack"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/xinetzone/sanstyle-starter/issues/new?title=Issue%20on%20page%20%2Fstart/topic.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/xinetzone/tensorflow-crack/issues/new?title=Issue%20on%20page%20%2Fstart/01_main-reload.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -388,11 +393,64 @@ commentsRunWhenDOMLoaded(addUtterances);
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/xinetzone/tensorflow-crack/main?urlpath=tree/./start/01_main-reload.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/xinetzone/tensorflow-crack/blob/main/./start/01_main-reload.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   载入数据
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   载入模型
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   训练模型
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   测试模型
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -402,35 +460,193 @@ commentsRunWhenDOMLoaded(addUtterances);
               <div>
                 
   <div class="section" id="id1">
-<h1>某个主题<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<h1>重载模型并训练<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">..</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>D:\kaggle\books\tensorflow-crack
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>载入数据<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">utils.loader</span> <span class="k">import</span> <span class="n">load_data</span>
+<span class="kn">from</span> <span class="nn">utils.toml</span> <span class="k">import</span> <span class="n">load_option</span>
+
+<span class="n">options</span> <span class="o">=</span> <span class="n">load_option</span><span class="p">(</span><span class="s1">&#39;options/dataset.toml&#39;</span><span class="p">)</span>
+<span class="n">train_gen</span><span class="p">,</span> <span class="n">val_gen</span><span class="p">,</span> <span class="n">test_gen</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found 600 images belonging to 2 classes.
+Found 200 images belonging to 2 classes.
+Found 200 images belonging to 2 classes.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>载入模型<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">utils.log</span> <span class="k">import</span> <span class="n">log_model</span>
+
+
+<span class="k">def</span> <span class="nf">reload_model</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">model_root</span><span class="p">):</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;</span><span class="si">{model_root}</span><span class="s1">/</span><span class="si">{model_name}</span><span class="s1">.h5&#39;</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_options</span> <span class="o">=</span> <span class="n">load_option</span><span class="p">(</span><span class="s1">&#39;options/train.toml&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">reload_model</span><span class="p">(</span><span class="s1">&#39;resnet152&#39;</span><span class="p">,</span> <span class="n">train_options</span><span class="o">.</span><span class="n">model_root</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+resnet152 (Functional)       (None, 7, 7, 2048)        58370944  
+_________________________________________________________________
+global_average_pooling2d (Gl (None, 2048)              0         
+_________________________________________________________________
+dense (Dense)                (None, 512)               1049088   
+_________________________________________________________________
+dense_1 (Dense)              (None, 1)                 513       
+=================================================================
+Total params: 59,420,545
+Trainable params: 1,049,601
+Non-trainable params: 58,370,944
+_________________________________________________________________
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>训练模型<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 儲存模型</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="s1">&#39;resnet152A-reload&#39;</span>
+<span class="n">log_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">model_name</span><span class="p">,</span>
+          <span class="n">train_gen</span><span class="p">,</span> <span class="n">val_gen</span><span class="p">,</span>
+          <span class="o">**</span><span class="n">train_options</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/10
+75/75 [==============================] - 33s 271ms/step - loss: 0.0957 - accuracy: 0.9650 - val_loss: 0.0453 - val_accuracy: 0.9900
+Epoch 2/10
+75/75 [==============================] - 15s 196ms/step - loss: 0.1279 - accuracy: 0.9633 - val_loss: 0.0200 - val_accuracy: 0.9950
+Epoch 3/10
+75/75 [==============================] - 15s 197ms/step - loss: 0.0482 - accuracy: 0.9833 - val_loss: 0.0780 - val_accuracy: 0.9650
+Epoch 4/10
+75/75 [==============================] - 15s 195ms/step - loss: 0.0461 - accuracy: 0.9850 - val_loss: 0.1395 - val_accuracy: 0.9350
+Epoch 5/10
+75/75 [==============================] - 15s 195ms/step - loss: 0.0678 - accuracy: 0.9783 - val_loss: 0.0725 - val_accuracy: 0.9750
+Epoch 6/10
+75/75 [==============================] - 15s 195ms/step - loss: 0.0253 - accuracy: 0.9883 - val_loss: 0.0461 - val_accuracy: 0.9900
+Epoch 7/10
+75/75 [==============================] - 15s 195ms/step - loss: 0.0455 - accuracy: 0.9850 - val_loss: 0.0658 - val_accuracy: 0.9800
+Epoch 8/10
+75/75 [==============================] - 15s 197ms/step - loss: 0.0589 - accuracy: 0.9850 - val_loss: 0.1185 - val_accuracy: 0.9400
+Epoch 9/10
+75/75 [==============================] - 15s 198ms/step - loss: 0.0297 - accuracy: 0.9950 - val_loss: 0.0696 - val_accuracy: 0.9650
+Epoch 10/10
+75/75 [==============================] - 15s 197ms/step - loss: 0.0214 - accuracy: 0.9917 - val_loss: 0.0276 - val_accuracy: 0.9900
+</pre></div>
+</div>
+<img alt="../_images/01_main-reload_9_1.png" src="../_images/01_main-reload_9_1.png" />
+<img alt="../_images/01_main-reload_9_2.png" src="../_images/01_main-reload_9_2.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\xinet\.conda\envs\tf\lib\site-packages\tensorflow\python\keras\utils\generic_utils.py:494: CustomMaskWarning: Custom mask layers require a config and must override get_config. When loading, the custom mask layer must be passed to the custom_objects argument.
+  warnings.warn(&#39;Custom mask layers require a config and must override &#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tensorflow.python.keras.callbacks.History at 0x1ae4a408d00&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>测试模型<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_result</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_generator</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">test_generator</span><span class="p">,</span>
+                             <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+                             <span class="n">return_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">results</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">test_result</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_gen</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25/25 [==============================] - 3s 104ms/step - loss: 0.0060 - accuracy: 1.0000
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
         binderOptions: {
-            repo: "xinetzone/sanstyle-starter",
+            repo: "xinetzone/tensorflow-crack",
             ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "tf"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "tf",
             path: "./start"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'tf'</script>
 
               </div>
               
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="index.html" title="previous page">快速上手</a>
+    <a class='left-prev' id="prev-link" href="00_train_n_test.html" title="previous page">训练与测试</a>
     <a class='right-next' id="next-link" href="../basics/index.html" title="next page">指南</a>
 
         </div>
