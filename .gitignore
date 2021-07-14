@@ -131,3 +131,7 @@ dmypy.json
 # css
 xin-css/
 w3css/
+
+simple-crack/
+results/
+models/

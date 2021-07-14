@@ -1,4 +1,4 @@
-name: ai
+name: tf
 channels:
   - default
   - conda-forge

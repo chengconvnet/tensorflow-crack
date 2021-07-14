@@ -11,3 +11,4 @@ nbclient
 sympy
 jupyter-dash
 plotly
+tensorflow

@@ -23,11 +23,12 @@ jobs:
         run: |
           pip install -r etc/requirements.txt
           conda install ipykernel
-          python -m ipykernel install --user --name ai --display-name "ai"
-      - name: Install theme
+          python -m ipykernel install --user --name tf --display-name "TensorFlow"
+      - name: Install theme and dataset
         run: |
           git clone https://github.com/xinetzone/xin-css.git ./_static/xin-css
           git clone https://github.com/xinetzone/w3css.git ./_static/w3css
+          git clone git@github.com:Sanstyle-Dataset/simple-crack.git ../simple-crack/
 
       # Build the book
       - name: Build the book
