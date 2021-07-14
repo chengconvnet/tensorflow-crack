@@ -12,3 +12,4 @@ sympy
 jupyter-dash
 plotly
 tensorflow
+toml

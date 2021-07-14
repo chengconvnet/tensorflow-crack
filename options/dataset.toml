@@ -1,0 +1,8 @@
+# root = 'simple-crack/dataset'
+train_dir = 'simple-crack/dataset/train'
+val_dir = 'simple-crack/dataset/valid'
+test_dir = 'simple-crack/dataset/test'
+# predict_dir = 'simple-crack/dataset/predict'
+target_size = [224, 224]
+batch_size = 8
+class_mode = 'binary'
