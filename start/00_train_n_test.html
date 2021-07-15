@@ -486,7 +486,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
 
 <span class="n">root</span> <span class="o">=</span> <span class="s1">&#39;../simple-crack/&#39;</span> <span class="c1"># 数据根目录</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">ZipFile</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{root}/dataset.zip&#39;</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">ZipFile</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">root</span><span class="si">}</span><span class="s1">/dataset.zip&#39;</span><span class="p">)</span>
 <span class="c1"># 解压全部数据</span>
 <span class="n">Z</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
 </pre></div>
@@ -507,13 +507,13 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">utils.loader</span> <span class="k">import</span> <span class="n">load_data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">utils.loader</span> <span class="kn">import</span> <span class="n">load_data</span>
 
 <span class="n">root</span> <span class="o">=</span> <span class="s1">&#39;simple-crack/dataset&#39;</span>
-<span class="n">train_dir</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;</span><span class="si">{root}</span><span class="s1">/train&#39;</span>
-<span class="n">val_dir</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;</span><span class="si">{root}</span><span class="s1">/valid&#39;</span>
-<span class="n">test_dir</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;</span><span class="si">{root}</span><span class="s1">/test&#39;</span>
-<span class="n">predict_dir</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;</span><span class="si">{root}</span><span class="s1">/predict&#39;</span>
+<span class="n">train_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">root</span><span class="si">}</span><span class="s1">/train&#39;</span>
+<span class="n">val_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">root</span><span class="si">}</span><span class="s1">/valid&#39;</span>
+<span class="n">test_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">root</span><span class="si">}</span><span class="s1">/test&#39;</span>
+<span class="n">predict_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">root</span><span class="si">}</span><span class="s1">/predict&#39;</span>
 
 
 <span class="n">target_size</span> <span class="o">=</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span>
@@ -544,11 +544,11 @@ Found 200 images belonging to 2 classes.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="k">import</span> <span class="n">optimizers</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">optimizers</span>
 <span class="c1"># 载入自定义包</span>
-<span class="kn">from</span> <span class="nn">utils.path_parse</span> <span class="k">import</span> <span class="n">mkdir</span>
-<span class="kn">from</span> <span class="nn">utils.loader_model</span> <span class="k">import</span> <span class="n">create_resnet152</span><span class="p">,</span> <span class="n">create_resnet152B</span><span class="p">,</span> <span class="n">create_resnet152C</span>
-<span class="kn">from</span> <span class="nn">utils.write_plot</span> <span class="k">import</span> <span class="n">create_history</span><span class="p">,</span> <span class="n">plot_history</span>
+<span class="kn">from</span> <span class="nn">utils.path_parse</span> <span class="kn">import</span> <span class="n">mkdir</span>
+<span class="kn">from</span> <span class="nn">utils.loader_model</span> <span class="kn">import</span> <span class="n">create_resnet152</span><span class="p">,</span> <span class="n">create_resnet152B</span><span class="p">,</span> <span class="n">create_resnet152C</span>
+<span class="kn">from</span> <span class="nn">utils.write_plot</span> <span class="kn">import</span> <span class="n">create_history</span><span class="p">,</span> <span class="n">plot_history</span>
 
 <span class="c1"># 使用同樣的優化器，要保證訓練的參數一致</span>
 <span class="c1"># optimizer = optimizers.SGD(lr=0.0001, momentum=0.0,</span>
@@ -628,8 +628,8 @@ _________________________________________________________________
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">epochs</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="c1"># 設定模型保存路徑</span>
-<span class="n">model_save_dir</span> <span class="o">=</span> <span class="s1">&#39;models&#39;</span>
-<span class="n">mkdir</span><span class="p">(</span><span class="n">model_save_dir</span><span class="p">)</span>
+<span class="n">model_root</span> <span class="o">=</span> <span class="s1">&#39;models&#39;</span>
+<span class="n">mkdir</span><span class="p">(</span><span class="n">model_root</span><span class="p">)</span>
 <span class="c1"># 設定數據保存路徑</span>
 <span class="n">save_dir</span> <span class="o">=</span> <span class="s1">&#39;results&#39;</span>
 <span class="n">mkdir</span><span class="p">(</span><span class="n">save_dir</span><span class="p">)</span>
@@ -642,16 +642,16 @@ _________________________________________________________________
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">log_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">train_gen</span><span class="p">,</span> <span class="n">val_gen</span><span class="p">,</span>
               <span class="n">epochs</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span>
               <span class="n">save_dir</span><span class="p">,</span> <span class="n">model_root</span><span class="p">):</span>
-    <span class="n">save_dir</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;</span><span class="si">{save_dir}</span><span class="s1">/</span><span class="si">{model_name}</span><span class="s1">&#39;</span>
+    <span class="n">save_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">save_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s1">&#39;</span>
     <span class="n">mkdir</span><span class="p">(</span><span class="n">save_dir</span><span class="p">)</span>
-    <span class="n">checkpoint_filepath</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;</span><span class="si">{save_dir}</span><span class="s1">/&#39;</span> <span class="o">+</span> \
+    <span class="n">checkpoint_filepath</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">save_dir</span><span class="si">}</span><span class="s1">/&#39;</span> <span class="o">+</span> \
         <span class="s1">&#39;weights.</span><span class="si">{epoch:03d}</span><span class="s1">-</span><span class="si">{val_loss:.7f}</span><span class="s1">.h5&#39;</span>
     <span class="n">history</span> <span class="o">=</span> <span class="n">create_history</span><span class="p">(</span>
         <span class="n">model</span><span class="p">,</span> <span class="n">epochs</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span>
         <span class="n">train_gen</span><span class="p">,</span> <span class="n">val_gen</span><span class="p">,</span>
         <span class="n">checkpoint_filepath</span><span class="p">)</span>
     <span class="n">plot_history</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{model_root}</span><span class="s1">/</span><span class="si">{model_name}</span><span class="s1">.h5&#39;</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">model_root</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s1">.h5&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">history</span>
 </pre></div>
 </div>
@@ -672,25 +672,25 @@ _________________________________________________________________
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/10
-60/60 [==============================] - 39s 314ms/step - loss: 0.3587 - accuracy: 0.8800 - val_loss: 0.2474 - val_accuracy: 0.9500
+75/75 [==============================] - 38s 246ms/step - loss: 0.3489 - accuracy: 0.9117 - val_loss: 0.2603 - val_accuracy: 0.8958
 Epoch 2/10
-60/60 [==============================] - 13s 219ms/step - loss: 0.0749 - accuracy: 0.9700 - val_loss: 0.0079 - val_accuracy: 1.0000
+75/75 [==============================] - 13s 169ms/step - loss: 0.0792 - accuracy: 0.9750 - val_loss: 0.5425 - val_accuracy: 0.7500
 Epoch 3/10
-60/60 [==============================] - 13s 218ms/step - loss: 0.1079 - accuracy: 0.9617 - val_loss: 0.1175 - val_accuracy: 0.9833
+75/75 [==============================] - 13s 171ms/step - loss: 0.1003 - accuracy: 0.9700 - val_loss: 0.0643 - val_accuracy: 0.9792
 Epoch 4/10
-60/60 [==============================] - 13s 213ms/step - loss: 0.0567 - accuracy: 0.9817 - val_loss: 0.2230 - val_accuracy: 0.9667
+75/75 [==============================] - 13s 169ms/step - loss: 0.0909 - accuracy: 0.9683 - val_loss: 0.2248 - val_accuracy: 0.9583
 Epoch 5/10
-60/60 [==============================] - 13s 217ms/step - loss: 0.0726 - accuracy: 0.9833 - val_loss: 0.1393 - val_accuracy: 0.9833
+75/75 [==============================] - 13s 170ms/step - loss: 0.0637 - accuracy: 0.9783 - val_loss: 0.2645 - val_accuracy: 0.9583
 Epoch 6/10
-60/60 [==============================] - 13s 219ms/step - loss: 0.0639 - accuracy: 0.9767 - val_loss: 0.0371 - val_accuracy: 0.9833
+75/75 [==============================] - 13s 170ms/step - loss: 0.2031 - accuracy: 0.9483 - val_loss: 0.2769 - val_accuracy: 0.9167
 Epoch 7/10
-60/60 [==============================] - 13s 214ms/step - loss: 0.0742 - accuracy: 0.9783 - val_loss: 0.2299 - val_accuracy: 0.9500
+75/75 [==============================] - 13s 168ms/step - loss: 0.0498 - accuracy: 0.9767 - val_loss: 0.1652 - val_accuracy: 0.9792
 Epoch 8/10
-60/60 [==============================] - 13s 218ms/step - loss: 0.0853 - accuracy: 0.9783 - val_loss: 0.1218 - val_accuracy: 0.9500
+75/75 [==============================] - 13s 169ms/step - loss: 0.0304 - accuracy: 0.9950 - val_loss: 0.0809 - val_accuracy: 0.9792
 Epoch 9/10
-60/60 [==============================] - 13s 223ms/step - loss: 0.0848 - accuracy: 0.9667 - val_loss: 0.1365 - val_accuracy: 0.9000
+75/75 [==============================] - 13s 169ms/step - loss: 0.1145 - accuracy: 0.9650 - val_loss: 0.1661 - val_accuracy: 0.9792
 Epoch 10/10
-60/60 [==============================] - 13s 214ms/step - loss: 0.0547 - accuracy: 0.9800 - val_loss: 0.3242 - val_accuracy: 0.9000
+75/75 [==============================] - 13s 168ms/step - loss: 0.0304 - accuracy: 0.9883 - val_loss: 0.0447 - val_accuracy: 0.9792
 </pre></div>
 </div>
 <img alt="../_images/00_train_n_test_9_1.png" src="../_images/00_train_n_test_9_1.png" />
@@ -717,30 +717,30 @@ Epoch 10/10
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/10
-60/60 [==============================] - 36s 309ms/step - loss: 19.8148 - accuracy: 0.8333 - val_loss: 0.5258 - val_accuracy: 0.9833
+75/75 [==============================] - 35s 240ms/step - loss: 9.8274 - accuracy: 0.8533 - val_loss: 4.5934e-10 - val_accuracy: 1.0000
 Epoch 2/10
-60/60 [==============================] - 14s 224ms/step - loss: 1.1546 - accuracy: 0.9500 - val_loss: 0.9679 - val_accuracy: 0.9000
+75/75 [==============================] - 13s 170ms/step - loss: 0.7661 - accuracy: 0.9583 - val_loss: 0.9122 - val_accuracy: 0.9375
 Epoch 3/10
-60/60 [==============================] - 13s 218ms/step - loss: 0.3310 - accuracy: 0.9667 - val_loss: 1.3446 - val_accuracy: 0.8500
+75/75 [==============================] - 13s 169ms/step - loss: 0.3806 - accuracy: 0.9617 - val_loss: 0.1451 - val_accuracy: 0.9792
 Epoch 4/10
-60/60 [==============================] - 13s 212ms/step - loss: 0.2672 - accuracy: 0.9683 - val_loss: 0.4707 - val_accuracy: 0.9833
+75/75 [==============================] - 13s 169ms/step - loss: 0.2734 - accuracy: 0.9717 - val_loss: 0.3053 - val_accuracy: 0.9792
 Epoch 5/10
-60/60 [==============================] - 13s 216ms/step - loss: 0.2199 - accuracy: 0.9767 - val_loss: 0.2151 - val_accuracy: 0.9833
+75/75 [==============================] - 13s 169ms/step - loss: 0.0957 - accuracy: 0.9800 - val_loss: 0.2219 - val_accuracy: 0.9792
 Epoch 6/10
-60/60 [==============================] - 13s 222ms/step - loss: 0.1014 - accuracy: 0.9850 - val_loss: 1.0338 - val_accuracy: 0.7833
+75/75 [==============================] - 13s 170ms/step - loss: 0.1376 - accuracy: 0.9667 - val_loss: 1.0592e-04 - val_accuracy: 1.0000
 Epoch 7/10
-60/60 [==============================] - 13s 211ms/step - loss: 0.1010 - accuracy: 0.9800 - val_loss: 0.7159 - val_accuracy: 0.8500
+75/75 [==============================] - 13s 169ms/step - loss: 0.0504 - accuracy: 0.9850 - val_loss: 0.0318 - val_accuracy: 0.9792
 Epoch 8/10
-60/60 [==============================] - 13s 217ms/step - loss: 0.1075 - accuracy: 0.9783 - val_loss: 0.1844 - val_accuracy: 0.9833
+75/75 [==============================] - 13s 169ms/step - loss: 0.1186 - accuracy: 0.9733 - val_loss: 0.1477 - val_accuracy: 0.9583
 Epoch 9/10
-60/60 [==============================] - 13s 219ms/step - loss: 0.0296 - accuracy: 0.9917 - val_loss: 0.1553 - val_accuracy: 0.9833
+75/75 [==============================] - 13s 169ms/step - loss: 0.0841 - accuracy: 0.9783 - val_loss: 0.0253 - val_accuracy: 0.9792
 Epoch 10/10
-60/60 [==============================] - 13s 210ms/step - loss: 0.0191 - accuracy: 0.9917 - val_loss: 0.5583 - val_accuracy: 0.9500
+75/75 [==============================] - 13s 169ms/step - loss: 0.0830 - accuracy: 0.9800 - val_loss: 0.2611 - val_accuracy: 0.8750
 </pre></div>
 </div>
 <img alt="../_images/00_train_n_test_11_1.png" src="../_images/00_train_n_test_11_1.png" />
 <img alt="../_images/00_train_n_test_11_2.png" src="../_images/00_train_n_test_11_2.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tensorflow.python.keras.callbacks.History at 0x1c823595880&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tensorflow.python.keras.callbacks.History at 0x2925764c160&gt;
 </pre></div>
 </div>
 </div>
@@ -762,30 +762,30 @@ Epoch 10/10
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/10
-60/60 [==============================] - 37s 304ms/step - loss: 9.9170 - accuracy: 0.8717 - val_loss: 13.8701 - val_accuracy: 0.9167
+75/75 [==============================] - 37s 237ms/step - loss: 16.3992 - accuracy: 0.8733 - val_loss: 0.0000e+00 - val_accuracy: 1.0000
 Epoch 2/10
-60/60 [==============================] - 13s 220ms/step - loss: 0.7019 - accuracy: 0.9383 - val_loss: 1.1699 - val_accuracy: 0.9833
+75/75 [==============================] - 13s 169ms/step - loss: 2.5950 - accuracy: 0.9217 - val_loss: 7.9883e-08 - val_accuracy: 1.0000
 Epoch 3/10
-60/60 [==============================] - 13s 218ms/step - loss: 0.3197 - accuracy: 0.9700 - val_loss: 0.4464 - val_accuracy: 0.9667
+75/75 [==============================] - 13s 169ms/step - loss: 0.2690 - accuracy: 0.9700 - val_loss: 0.0035 - val_accuracy: 1.0000
 Epoch 4/10
-60/60 [==============================] - 13s 217ms/step - loss: 0.2005 - accuracy: 0.9700 - val_loss: 0.3168 - val_accuracy: 0.9333
+75/75 [==============================] - 13s 169ms/step - loss: 0.1373 - accuracy: 0.9683 - val_loss: 0.0328 - val_accuracy: 0.9792
 Epoch 5/10
-60/60 [==============================] - 13s 222ms/step - loss: 0.1038 - accuracy: 0.9833 - val_loss: 0.3406 - val_accuracy: 0.9000
+75/75 [==============================] - 13s 170ms/step - loss: 0.1262 - accuracy: 0.9717 - val_loss: 0.0631 - val_accuracy: 0.9792
 Epoch 6/10
-60/60 [==============================] - 13s 222ms/step - loss: 0.0602 - accuracy: 0.9817 - val_loss: 0.0290 - val_accuracy: 0.9833
+75/75 [==============================] - 13s 169ms/step - loss: 0.1133 - accuracy: 0.9800 - val_loss: 0.1140 - val_accuracy: 0.9583
 Epoch 7/10
-60/60 [==============================] - 13s 214ms/step - loss: 0.0504 - accuracy: 0.9900 - val_loss: 0.0933 - val_accuracy: 0.9667
+75/75 [==============================] - 13s 169ms/step - loss: 0.1337 - accuracy: 0.9717 - val_loss: 0.0612 - val_accuracy: 0.9792
 Epoch 8/10
-60/60 [==============================] - 13s 216ms/step - loss: 0.0449 - accuracy: 0.9833 - val_loss: 0.0498 - val_accuracy: 0.9833
+75/75 [==============================] - 13s 170ms/step - loss: 0.0834 - accuracy: 0.9733 - val_loss: 0.0800 - val_accuracy: 0.9792
 Epoch 9/10
-60/60 [==============================] - 13s 218ms/step - loss: 0.0410 - accuracy: 0.9917 - val_loss: 0.0469 - val_accuracy: 0.9833
+75/75 [==============================] - 13s 169ms/step - loss: 0.0623 - accuracy: 0.9850 - val_loss: 0.0206 - val_accuracy: 0.9792
 Epoch 10/10
-60/60 [==============================] - 13s 216ms/step - loss: 0.0469 - accuracy: 0.9867 - val_loss: 0.0672 - val_accuracy: 0.9667
+75/75 [==============================] - 13s 170ms/step - loss: 0.0824 - accuracy: 0.9833 - val_loss: 0.0731 - val_accuracy: 0.9792
 </pre></div>
 </div>
 <img alt="../_images/00_train_n_test_13_1.png" src="../_images/00_train_n_test_13_1.png" />
 <img alt="../_images/00_train_n_test_13_2.png" src="../_images/00_train_n_test_13_2.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tensorflow.python.keras.callbacks.History at 0x1cb09291820&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tensorflow.python.keras.callbacks.History at 0x2928ea073d0&gt;
 </pre></div>
 </div>
 </div>
@@ -814,9 +814,9 @@ Epoch 10/10
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20/20 [==============================] - 2s 104ms/step - loss: 0.0710 - accuracy: 0.9950
-20/20 [==============================] - 2s 104ms/step - loss: 0.0267 - accuracy: 0.9850
-20/20 [==============================] - 2s 103ms/step - loss: 0.0603 - accuracy: 0.9850
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25/25 [==============================] - 3s 106ms/step - loss: 0.0020 - accuracy: 1.0000
+25/25 [==============================] - 3s 106ms/step - loss: 0.0197 - accuracy: 0.9950
+25/25 [==============================] - 3s 106ms/step - loss: 0.0460 - accuracy: 1.0000
 </pre></div>
 </div>
 </div>
@@ -833,16 +833,16 @@ Epoch 10/10
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "tf"
+            mode: "python"
         },
         kernelOptions: {
-            kernelName: "tf",
+            kernelName: "python3",
             path: "./start"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'tf'</script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
