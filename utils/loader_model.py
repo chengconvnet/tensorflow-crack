@@ -8,7 +8,7 @@ def create_modelA(base_model):
     model = Sequential()
     model.add(base_model)
     model.add(GlobalAveragePooling2D())
-    model.add(Dense(1024, activation='relu'))
+    model.add(Dense(512, activation='relu'))
     model.add(Dropout(0.5))  # 丟棄法
     model.add(Dense(1, activation='sigmoid'))
     base_model.trainable = False
@@ -20,7 +20,7 @@ def create_modelB(base_model):
     model = Sequential()
     model.add(base_model)    # 將模型做為一層
     model.add(Flatten())
-    model.add(Dense(1024, activation='relu'))
+    model.add(Dense(512, activation='relu'))
     model.add(Dropout(0.5))  # 丟棄法
     model.add(Dense(1, activation='sigmoid'))
     #for layer in base_model.layers:
@@ -34,7 +34,7 @@ def create_modelC(base_model):
     model = Sequential()
     model.add(base_model)    # 將模型做為一層
     model.add(Flatten())
-    model.add(Dense(1024, activation='relu'))
+    model.add(Dense(512, activation='relu'))
     model.add(Dropout(0.5))  # 丟棄法
     model.add(Dense(1, activation='sigmoid'))
     #for layer in base_model.layers:
