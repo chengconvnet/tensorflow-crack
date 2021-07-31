@@ -1,4 +1,4 @@
 model_root = 'models'
 save_dir = 'results'
-epochs = 10
-batch_size = 8
+epochs = 64
+batch_size = 32
